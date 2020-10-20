@@ -58,32 +58,34 @@ function validator(body, model) {
 
 function validatorforEdit(body, model) {
   let result = {}
-  let modelCounter = model.length
-  let counter = 0
   for (const key in body) {
     if (model.includes(key)) {
       result[key] = body[key]
-      counter++
     }
   }
-  // if (counter < modelCounter) {
-  //   return false
-  // }
+  if (Object.keys(result).length == 0) {
+    return false
+  }
   return result
 }
 
-function get(tableName, id) {
-  const parsedId = parseInt(id)
-  if (parsedId) {
+function get(tableName, query) {
+  if (query && Object.keys(query).length) {
     return db
       .get(tableName)
-      .find({ id: parsedId })
-      .value()
-  } else {
-    return db
-      .get(tableName)
+      .find(query)
       .value()
   }
+  return db
+    .get(tableName)
+    .value()
+}
+
+function getById(tableName, id) {
+  return db
+    .get(tableName)
+    .find({ id })
+    .value()
 }
 
 /**
@@ -127,12 +129,11 @@ function edit(tableName, id, body) {
   if (tableName == 'books') {
     parsedBody = validatorforEdit(body, booksModel)
   }
-  if (!parsedBody) {
+  if (parsedBody == false) {
     return false
   }
-  const parsedId = parseInt(id)
-  db.get(tableName)
-    .find({ id: parsedId })
+  return db.get(tableName)
+    .find({ id })
     .assign(body)
     .write()
 }
@@ -143,14 +144,14 @@ function edit(tableName, id, body) {
  * @param {String|Number} id data id
  */
 function remove(tableName, id) {
-  const parsedId = parseInt(id)
   db.get(tableName)
-    .remove({ id: parsedId })
+    .remove({ id })
     .write()
 }
 
 module.exports = {
   get,
+  getById,
   add,
   edit,
   remove

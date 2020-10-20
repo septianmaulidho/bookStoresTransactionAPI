@@ -4,11 +4,13 @@ const db = require('../../controller/dbController')
 
 app.post('/stores', (req, res) => {
     const body = req.body
-    if (db.get('stores', body.id)) {
-        res.status(404).send("Bad Request!")
+    const result = db.add('stores', body)
+    if (!result) {
+        res.status(400).send('Wrong body')
     } else {
-        res.send(db.add('stores', body))
+        res.send(result)
     }
+    return
 })
 
 module.exports = app

@@ -4,9 +4,15 @@ const db = require('../../controller/dbController')
 
 app.patch('/category', (req, res) => {
     const body = req.body
-    const id = req.query.id
-    if (db.get('category', id)) {
-        const edit = db.edit('category', id, body)
+    const query = req.query
+    if (body.storeId) {
+        if (!db.getById('stores', body.storeId)) {
+            res.status(404).send("Store Id is not exist!")
+            return
+        }
+    }
+    if (db.get('category', query)) {
+        const edit = db.edit('category', query.id, body)
         if (edit == false) {
             res.status(404).send("Bad Request!")
             return

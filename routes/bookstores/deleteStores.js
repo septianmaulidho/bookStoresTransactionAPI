@@ -4,10 +4,9 @@ const db = require('../../controller/dbController')
 
 app.delete('/stores', (req, res) => {
     const query = req.query
-    const id = query.id
 
-    if (db.get('stores', id)) {
-        db.remove('stores', id)
+    if (db.get('stores', query)) {
+        db.remove('stores', query.id)
         res.send('Ok')
     } else {
         res.status(404).send(`The ID isn't available in database!`)

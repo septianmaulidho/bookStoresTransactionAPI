@@ -4,16 +4,16 @@ const db = require('../../controller/dbController')
 
 app.patch('/stores', (req, res) => {
     const body = req.body
-    const id = req.query.id
-    if (db.get('stores', id)) {
-        const edit = db.edit('stores', id, body)
+    const query = req.query
+    if (db.get('stores', query)) {
+        const edit = db.edit('stores', query.id, body)
         if (edit == false) {
             res.status(404).send("Bad Request!")
             return
         }
-        res.send(body)
+        res.send(edit)
     } else {
-        res.status(404).send(`The ID isn't available in database!`)
+        res.status(404).send(`Wrong Query!`)
     }
 
 })

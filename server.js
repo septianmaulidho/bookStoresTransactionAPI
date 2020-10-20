@@ -11,6 +11,11 @@ const addCategory = require('./routes/categoryroute/addCategory')
 const editCategory = require('./routes/categoryroute/editCategory')
 const deleteCategory = require('./routes/categoryroute/deleteCategory')
 
+const getBooks = require('./routes/books/getBooks')
+const addBooks = require('./routes/books/addBooks')
+const editBooks = require('./routes/books/editBooks')
+const deleteBooks = require('./routes/books/deleteBooks')
+
 const app = express()
 app.use(rootRoute)
 
@@ -24,6 +29,11 @@ app.use(getCategory)
 app.use(addCategory)
 app.use(editCategory)
 app.use(deleteCategory)
+
+app.use(getBooks)
+app.use(addBooks)
+app.use(editBooks)
+app.use(deleteBooks)
 
 const port = 3000
 app.listen(port, () => {

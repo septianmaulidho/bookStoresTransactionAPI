@@ -5,4 +5,3 @@ module.exports = [
     'phoneNumber',
     'email',
     'website'
-]
