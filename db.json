@@ -1,0 +1,85 @@
+{
+  "notes": [],
+  "transactions": [],
+  "contacts": [],
+  "promos": [],
+  "weather": [],
+  "news": [],
+  "credits": [],
+  "location": [
+    {
+      "id": 2,
+      "name": "Kirigakure",
+      "km2": "304,234.54"
+    },
+    {
+      "id": 3,
+      "name": "Batam",
+      "km2": "23433.54"
+    },
+    {
+      "id": 1,
+      "name": "Padang Panjang",
+      "km2": "53533.76"
+    },
+    {
+      "id": 6,
+      "name": "Bali",
+      "km2": "53533,76"
+    },
+    {
+      "id": 7,
+      "name": "Jakarta",
+      "km2": "2020-06-01"
+    },
+    {
+      "id": 12,
+      "name": "Konoha",
+      "km2": "budi"
+    },
+    {
+      "id": 20,
+      "name": "Singapura",
+      "km2": "345343"
+    },
+    {
+      "id": 17,
+      "km2": "345343",
+      "name": "Irian Jaya"
+    },
+    {
+      "id": 15,
+      "km2": "345,343",
+      "name": "Tegal"
+    },
+    {
+      "id": 8,
+      "km2": "345,343.76",
+      "name": "Arizona"
+    }
+  ],
+  "stores": [
+    {},
+    {
+      "id": 1,
+      "name": "Gramedia Medan Mall",
+      "address": "Jl. Gajah Mada",
+      "phoneNumber": "061-34243",
+      "email": "gramedangama@gramedia.com",
+      "website": "www.gramedia.com",
+      "categoryName": "Science"
+    }
+  ],
+  "inventory": [],
+  "goods": [],
+  "categories": [],
+  "books": [],
+  "category": [
+    {
+      "id": 1,
+      "storeId": 1,
+      "categoryName": "Computer",
+      "Qty": "0"
+    }
+  ]
+}
