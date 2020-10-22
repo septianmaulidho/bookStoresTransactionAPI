@@ -3,6 +3,8 @@ const FileSync = require('lowdb/adapters/FileSync')
 const storesModel = require('../model/storesModel')
 const categoryModel = require('../model/categoryModel')
 const booksModel = require('../model/booksModel')
+const transactionModel = require('../model/transactionModel')
+const cashierModel = require('../model/cashierModel')
 
 // ⚠️ propietary code, don't change it ⚠️
 // this code will create db.json automatically if your folder doesn't have one
@@ -25,7 +27,9 @@ let db;
       // 👇 table names
       stores: [],
       category: [],
-      books: []
+      books: [],
+      transaction: [],
+      cashier: []
     })
       .write()
   } catch (error) {
@@ -82,8 +86,7 @@ function get(tableName, query) {
 }
 
 function getById(tableName, id) {
-  return db
-    .get(tableName)
+  return db.get(tableName)
     .find({ id })
     .value()
 }
@@ -103,6 +106,12 @@ function add(tableName, body) {
   }
   if (tableName == 'books') {
     parsedBody = validator(body, booksModel)
+  }
+  if (tableName == 'transaction') {
+    parsedBody = validator(body, transactionModel)
+  }
+  if (tableName == 'cashier') {
+    parsedBody = validator(body, cashierModel)
   }
   if (!parsedBody) {
     return false
@@ -128,6 +137,9 @@ function edit(tableName, id, body) {
   }
   if (tableName == 'books') {
     parsedBody = validatorforEdit(body, booksModel)
+  }
+  if (tableName == 'transaction') {
+    parsedBody = validatorforEdit(body, transactionModel)
   }
   if (parsedBody == false) {
     return false

@@ -16,6 +16,14 @@ const addBooks = require('./routes/books/addBooks')
 const editBooks = require('./routes/books/editBooks')
 const deleteBooks = require('./routes/books/deleteBooks')
 
+const getTransaction = require('./routes/transaction/getTransaction')
+const addTransaction = require('./routes/transaction/addTransaction')
+const deleteTransaction = require('./routes/transaction/deleteTransaction')
+const editTransaction = require('./routes/transaction/editTransaction')
+
+const registerRoute = require('./routes/registerRoute')
+const loginRoute = require('./routes/loginRoute')
+
 const app = express()
 app.use(rootRoute)
 
@@ -34,6 +42,14 @@ app.use(getBooks)
 app.use(addBooks)
 app.use(editBooks)
 app.use(deleteBooks)
+
+app.use(getTransaction)
+app.use(addTransaction)
+app.use(editTransaction)
+app.use(deleteTransaction)
+
+app.use(registerRoute)
+app.use(loginRoute)
 
 const port = 3000
 app.listen(port, () => {

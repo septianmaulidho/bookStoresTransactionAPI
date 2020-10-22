@@ -34,5 +34,25 @@
       "author": "Ummu Hiqullah",
       "publisher": "Airlangga"
     }
+  ],
+  "transaction": [
+    {
+      "id": "2",
+      "storeId": "1",
+      "username": "popaye",
+      "totalPrice": "20000"
+    },
+    {
+      "id": "4",
+      "storeId": "1",
+      "username": "popaye",
+      "totalPrice": "50000"
+    }
+  ],
+  "cashier": [
+    {
+      "cashierName": "popaye",
+      "password": "zenfone"
+    }
   ]
 }
